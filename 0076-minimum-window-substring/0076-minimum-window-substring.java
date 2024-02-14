@@ -1,6 +1,6 @@
 class Solution {
     public String minWindow(String s, String t) {
-         HashMap<Character,Integer> pattern = new HashMap<>();
+        HashMap<Character,Integer> pattern = new HashMap<>();
         
         for(Character key : t.toCharArray()){
             int value = pattern.getOrDefault(key,0);
@@ -25,7 +25,7 @@ class Solution {
                     if(value==0){
                         count--;
                     }
-                    System.out.println(" j : "+j+" key "+key);
+                    
                 }
                 j++;
             }
@@ -35,9 +35,10 @@ class Solution {
           visited=true;
                
                 resultString = result.length() < resultString.length() ? result :resultString;
+          }
                 key = s.charAt(i);
                 value = pattern.getOrDefault(key,Integer.MIN_VALUE);
-          }
+          
                 if(value != Integer.MIN_VALUE){
                     value++;
                     if(value ==1){
@@ -48,7 +49,7 @@ class Solution {
 
             i++;
 
-
+            
 
         }
         return visited?resultString:"";
